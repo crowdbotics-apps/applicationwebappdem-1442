@@ -8,7 +8,7 @@ from django.db import models
 
 class CustomText(models.Model):
     title = models.CharField(max_length=150,)
-    char = models.CharField(max_length=256, null=True, blank=True,)
+    char = models.CharField(null=True, blank=True, max_length=256,)
 
     def __str__(self):
         return self.title
@@ -32,3 +32,8 @@ class HomePage(models.Model):
     @property
     def field(self):
         return "body"
+
+
+class TestD(models.Model):
+    "Generated Model"
+    test = models.GenericIPAddressField(protocol="IPv6", unpack_ipv4=False,)
